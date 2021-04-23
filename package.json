@@ -6,8 +6,8 @@
   "repository": "https://github.com/Ichtuus/whoimi.github.io",
   "author": "Nicolas <nicolasdiarra777@gmail.com>",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
+    "serve": "NODE_ENV=development vue-cli-service serve",
+    "build": "NODE_ENV=production vue-cli-service build",
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
@@ -27,10 +27,7 @@
     "vue-template-compiler": "^2.5.16",
     "sass": "^1.32.7",
     "sass-loader": "^10.1.1",
-    "style-loader": "^1.2.1",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "style-loader": "^1.2.1"
   },
   "browserslist": [
     "> 1%",

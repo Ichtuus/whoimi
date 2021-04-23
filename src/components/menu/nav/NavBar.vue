@@ -18,7 +18,7 @@
           <span>Sample Menu</span>
           <div slot="dropdown" class="navbar-dropdown">
             <router-link
-                to="/profile"
+                :to="{ name: 'Home' }"
                 class="navbar-item"
                 exact-active-class="is-active"
             >

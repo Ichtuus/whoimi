@@ -8,7 +8,7 @@ import Buefy from 'buefy'
 import router from './router'
 
 Vue.use(Buefy)
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 new Vue({
     router,

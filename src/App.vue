@@ -4,7 +4,7 @@
       <nav-bar />
     </div>
     <div class="column">
-      <router-view/>
+      <router-view></router-view>
     </div>
   </div>
 </template>

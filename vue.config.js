@@ -1,15 +1,5 @@
 module.exports = {
-  publicPath: process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? '/whoimi/'
-    : '/',
-
-  // Remove moment.js from chart.js
-  // https://www.chartjs.org/docs/latest/getting-started/integration.html#bundlers-webpack-rollup-etc
-  configureWebpack: config => {
-    return {
-      externals: {
-        moment: 'moment'
-      }
-    }
-  }
+  publicPath: process.env.NODE_ENV === 'production'
+      ? '/whoimi/'
+      : '/'
 }
