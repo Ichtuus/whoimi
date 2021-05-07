@@ -14,32 +14,32 @@ export default new Router({
     mode: 'history',
     routes: [
         {
-            path: '/',
+            path: '/whoimi',
             name: 'Home',
             component: Home
         },
         {
-            path: '/about-me',
+            path: '/whoimi/about-me',
             name: 'AboutMe',
             component: AboutMe
         },
         {
-            path: '/github',
+            path: '/whoimi/github',
             name: 'GitHub',
             component: GitHub
         },
         {
-            path: '/front',
+            path: '/whoimi/front',
             name: 'Front',
             component: Front
         },
         {
-            path: '/back',
+            path: '/whoimi/back',
             name: 'Back',
             component: Back
         },
         {
-            path: '/not-found',
+            path: '/whoimi/not-found',
             name: 'not-found',
             component: NotFound
         },
