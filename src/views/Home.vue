@@ -1,25 +1,20 @@
 <template>
   <div>
-    <title-bar :title-stack="titleStack" />
-    <hero-bar :has-right-visible="false">
-      Dashboard
-    </hero-bar>
-    <section class="section is-main-section">
-      section
-    </section>
+
+<!--    <section class="section is-main-section">-->
+
+<!--      {{ repositories }}-->
+<!--    </section>-->
   </div>
 </template>
 
 <script>
-import HeroBar from "../components/common/HeroBar";
-import TitleBar from "../components/common/TitleBar";
+import HeroBar from '../components/common/HeroBar'
+import GitHubApi from "@/views/AbstractGitHub";
+
 export default {
   name: 'Home',
-  components: { HeroBar, TitleBar },
-  computed: {
-    titleStack () {
-      return ['Admin', 'Dashboard']
-    }
-  },
+  components: { HeroBar },
+  extends: GitHubApi
 }
 </script>
