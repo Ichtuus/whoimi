@@ -26,7 +26,7 @@ const actions = {
         try {
             commit(IS_LOADING_USER_INFO, true)
             const user = await gitHubApi.getUserInfo({username})
-            console.log('user', user)
+            // console.log('user', user)
             commit(UPDATE_USER, user)
             commit(IS_LOADING_USER_INFO, false)
         } catch (e) {
@@ -53,8 +53,8 @@ const actions = {
                 .then(( [ commits, branches ] ) => {
                     return { commits, branches }
                 })
-            console.log(`${repo} commits`, commits)
-            console.log(`${repo} branches`, branches)
+            // console.log(`${repo} commits`, commits)
+            // console.log(`${repo} branches`, branches)
             commit(UPDATE_GITHUB_INFO, { repo, commits, branches })
             // commit(UPDATE_COMMITS_BY_REPOS, commits)
             // commit(UPDATE_BRANCHES_BY_REPOS, branches)
