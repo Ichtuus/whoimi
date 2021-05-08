@@ -53,11 +53,11 @@ const actions = {
                 .then(( [ commits, branches ] ) => {
                     return { commits, branches }
                 })
-            // console.log(`${repo} commits`, commits)
-            // console.log(`${repo} branches`, branches)
+            console.log(`${repo} commits`, commits)
+            console.log(`${repo} branches`, branches)
             commit(UPDATE_GITHUB_INFO, { repo, commits, branches })
-            // commit(UPDATE_COMMITS_BY_REPOS, commits)
-            // commit(UPDATE_BRANCHES_BY_REPOS, branches)
+            commit(UPDATE_COMMITS_BY_REPOS, commits)
+            commit(UPDATE_BRANCHES_BY_REPOS, branches)
         } catch (e) {
             console.log('error', e)
         }

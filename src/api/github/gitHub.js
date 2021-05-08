@@ -2,13 +2,8 @@ import axios from 'axios'
 
 function Api () {
     return axios.create({
-        baseURL: `https://api.github.com`,
+        baseURL: `http://localhost:1070/`,
         withCredentials: false,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+ process.env.VUE_APP_GITHUB_ACCESS_TOKEN
-        }
     })
 }
 
@@ -29,8 +24,20 @@ export default {
     //     return Api().get(`users/${username}`)
     //         .then(resp => resp.data)
     // },
-    getUserRepositories () {
-        return axios.get('http://localhost:1070/github')
+    async getUserRepositories ({username}) {
+        return await Api().get('repositories' , {params: {username}})
             .then(response => response.data)
-    }
+    },
+    async getCommitsByRepository({username, repo}){
+        return await Api().get(`commits`, {params: {username, repo}})
+            .then(response => response.data)
+    },
+    async getBranchesByRepository({username, repo}){
+        return await Api().get(`branches`, {params: {username, repo}})
+            .then(response => response.data)
+    },
+    async getUserInfo({username}){
+        return await Api().get(`users/${username}`)
+            .then(response => response.data)
+    },
 }

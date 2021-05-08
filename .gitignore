@@ -1,6 +1,8 @@
 /node_modules
 /dist
 
+/src/services/gitHub/ecosystem.config.js
+
 /.env.local
 /.env.*.local
 
