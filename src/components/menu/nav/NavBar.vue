@@ -11,11 +11,21 @@
       >
         NICOLAS DIARRA
       </router-link>
+      <div class="navbar-brand">
+        <a
+            class="navbar-item navbar-item-menu-toggle is-hidden-desktop"
+            @click.prevent="isNavBarActive = !isNavBarActive"
+        >
+          <b-icon :icon="isNavBarActive ? 'close' : 'dots-vertical'" custom-size="default" />
+        </a>
+      </div>
     </div>
 
+
     <div
+        :class="{ 'is-active': isNavBarActive }"
         id="whoimi-navbar"
-        class="navbar-menu">
+        class="navbar-menu fadeIn animated faster">
       <div
           class="navbar-start">
         <router-link
@@ -33,6 +43,11 @@
 <script>
 export default {
   name: 'NavBar',
+  data () {
+    return {
+      isNavBarActive: false
+    }
+  },
   computed: {
     itemsMenu () {
       return [
