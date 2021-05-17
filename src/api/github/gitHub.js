@@ -8,22 +8,6 @@ function Api () {
 }
 
 export default {
-    // getUserRepositories({username}){
-    //     return Api().get(`users/${username}/repos`)
-    //         .then(resp => resp.data)
-    // },
-    // getCommitsByRepository({username, repo}){
-    //     return Api().get(`repos/${username}/${repo}/commits`)
-    //         .then(resp => resp.data)
-    // },
-    // getBranchesByRepository({username, repo}){
-    //     return Api().get(`repos/${username}/${repo}/branches`)
-    //         .then(resp => resp.data)
-    // },
-    // getUserInfo({username}){
-    //     return Api().get(`users/${username}`)
-    //         .then(resp => resp.data)
-    // },
     async getUserRepositories ({username}) {
         return await Api().get('repositories' , {params: {username}})
             .then(response => response.data)

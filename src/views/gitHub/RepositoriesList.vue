@@ -3,6 +3,7 @@
       :striped="true"
       :hoverable="true"
       default-sort="repository"
+      :loading="isLoadingGitHubInfo"
       :data="gitHubInfo"
   >
     <b-table-column label="Repository" field="repository" sortable v-slot="props">
@@ -18,10 +19,15 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: 'NotFound',
   props: {
     gitHubInfo: {type: Array, required: true}
+  },
+  computed: {
+    ...mapGetters('gitHub', ['isLoadingGitHubInfo']),
   }
 }
 </script>

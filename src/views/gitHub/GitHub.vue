@@ -5,13 +5,32 @@
         <card-counter
             class="tile is-child"
             type="is-primary"
-            icon="account-multiple"
-            :number="512"
-            label="Clients"
+            icon="file-document"
+            :number="gitHubInfo.length"
+            label="Repositories"
+        />
+      </div>
+
+      <div class="column is-3">
+        <card-counter
+            class="tile is-child"
+            type="is-primary"
+            icon="file-document"
+            :number="totalCommits(gitHubInfo)"
+            label="Commits"
+        />
+      </div>
+
+      <div class="column is-3">
+        <card-counter
+            class="tile is-child"
+            type="is-primary"
+            icon="file-document"
+            :number="totalBranches(gitHubInfo)"
+            label="Branches"
         />
       </div>
     </div>
-
 
     <card-component
         class="has-table"
@@ -34,6 +53,6 @@ import CardCounter from "@/components/common/CardCounter";
 export default {
   name: 'GitHub',
   extends: GitHubApi,
-  components: { RepositoriesList, CardComponent, CardCounter },
+  components: { RepositoriesList, CardComponent, CardCounter }
 }
 </script>

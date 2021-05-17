@@ -1,6 +1,6 @@
 <script>
 import {mapGetters} from 'vuex'
-
+import gitHubHelper from '../helper/gitHub/gitHub'
 export default {
   name: 'GitHubApi',
   data () {
@@ -19,6 +19,14 @@ export default {
     this._repositories.forEach( repository => {
       this.$store.dispatch('gitHub/getGitHubInfo', { username: this.username, repo: repository.name })
     })
+  },
+  methods: {
+    totalCommits () {
+      return gitHubHelper.totalCommits(this.gitHubInfo.filter(item => item.branches_nbr))
+    },
+    totalBranches () {
+      return gitHubHelper.totalBranches(this.gitHubInfo.filter(item => item.branches_nbr))
+    }
   }
 }
 </script>
