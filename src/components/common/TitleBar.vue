@@ -10,20 +10,21 @@
           </ul>
         </div>
       </div>
-<!--      <div class="level-right">-->
-<!--        <div class="level-item">-->
-<!--          <div class="buttons is-right">-->
-<!--            <a-->
-<!--                href="https://admin-one.justboil.me/"-->
-<!--                target="_blank"-->
-<!--                class="button is-primary"-->
-<!--            >-->
-<!--              <b-icon icon="credit-card" custom-size="default" />-->
-<!--              <span>Premium Demo</span>-->
-<!--            </a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+
+      <div class="level-right">
+        <div class="level-item">
+          <div class="buttons is-right">
+            <a
+                download="cv_de_nicolas_diarra"
+                :href='`${url}image/NICOLAS_DIARRA.pdf`'
+                class="button is-primary"
+            >
+              <b-icon icon="credit-card" custom-size="default" />
+              <span>Télécharger mon CV</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -36,6 +37,11 @@ export default {
       type: Array,
       default: () => []
     }
-  }
+  },
+  data () {
+    return {
+      url: process.env.BASE_URL
+    }
+  },
 }
 </script>
