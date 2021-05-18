@@ -7,7 +7,7 @@
       :data="gitHubInfo"
   >
     <b-table-column label="Repository" field="repository" sortable v-slot="props">
-      {{ props.row.repository }}
+      <a :href="props.row.repository.url">{{ props.row.repository.repo }}</a>
     </b-table-column>
     <b-table-column label="Branches" field="branches" sortable v-slot="props">
       {{ props.row.branches_nbr }}

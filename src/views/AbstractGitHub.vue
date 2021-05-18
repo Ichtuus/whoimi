@@ -1,6 +1,6 @@
 <script>
 import {mapGetters} from 'vuex'
-import gitHubHelper from '../helper/gitHub/gitHub'
+import gitHubHelper from '../helpers/gitHub/gitHub'
 export default {
   name: 'GitHubApi',
   data () {
@@ -17,7 +17,7 @@ export default {
   async mounted() {
     await this.$store.dispatch('gitHub/getUserRepositories', { username: this.username })
     this._repositories.forEach( repository => {
-      this.$store.dispatch('gitHub/getGitHubInfo', { username: this.username, repo: repository.name })
+      this.$store.dispatch('gitHub/getGitHubInfo', { username: this.username, repo: repository.name, url: repository.html_url })
     })
   },
   methods: {

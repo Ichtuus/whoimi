@@ -38,14 +38,14 @@ const actions = {
             console.log('error', e)
         }
     },
-    async getGitHubInfo ({commit},  {username, repo}) {
+    async getGitHubInfo ({commit},  {username, repo, url}) {
         commit(IS_LOADING_GITHUB_INFO, true)
         try {
             await Promise.all([
                 gitHubApi.getBranchesByRepository({username, repo}),
                 gitHubApi.getCommitsByRepository({username, repo})
             ]).then(( [ commits, branches ] ) => {
-                commit(UPDATE_GITHUB_INFO, { repo, commits, branches })
+                commit(UPDATE_GITHUB_INFO, { repo, url, commits, branches })
                 commit(IS_LOADING_GITHUB_INFO, false)
             })
         } catch (e) {
@@ -82,8 +82,8 @@ const mutations = {
     [UPDATE_USER_REPOS] (state, repositories) {
         state.repositories = repositories
     },
-    [UPDATE_GITHUB_INFO] (state, { repo, commits, branches }) {
-        state.gitHubInfo.unshift({repository: repo, commits_nbr: commits.length, branches_nbr: branches.length})
+    [UPDATE_GITHUB_INFO] (state, { repo, url, commits, branches }) {
+        state.gitHubInfo.unshift({repository: { repo, url }, commits_nbr: commits.length, branches_nbr: branches.length})
     },
     [UPDATE_USER] (state, user) {
         state.user = user

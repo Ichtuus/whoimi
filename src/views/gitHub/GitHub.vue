@@ -15,7 +15,7 @@
         <card-counter
             class="tile is-child"
             type="is-primary"
-            icon="file-document"
+            icon="source-commit"
             :number="totalCommits(gitHubInfo)"
             label="Commits"
         />
@@ -25,7 +25,7 @@
         <card-counter
             class="tile is-child"
             type="is-primary"
-            icon="file-document"
+            icon="source-branch"
             :number="totalBranches(gitHubInfo)"
             label="Branches"
         />
