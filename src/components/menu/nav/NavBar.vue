@@ -52,9 +52,7 @@ export default {
     itemsMenu () {
       return [
         { name: 'About me', path: 'AboutMe' },
-        { name: 'GitHub', path: 'GitHub' },
-        { name: 'Front', path: 'Front' },
-        { name: 'Back', path: 'Back' },
+        { name: 'GitHub', path: 'GitHub' }
       ]
     }
   }

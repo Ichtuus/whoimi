@@ -4,6 +4,8 @@ const IS_LOADING_GITHUB_INFO = 'IS_LOADING_GITHUB_INFO'
 const IS_LOADING_USER_INFO = 'IS_LOADING_USER_INFO'
 const IS_LOADING_USER_REPOS = 'IS_LOADING_USER_REPOS'
 
+const RESET_ON_LEFT = 'RESET_ON_LEFT'
+
 const UPDATE_USER_REPOS = 'UPDATE_USER_REPOS'
 const UPDATE_GITHUB_INFO = 'UPDATE_GITHUB_INFO'
 
@@ -51,6 +53,9 @@ const actions = {
         } catch (e) {
             console.log('error', e)
         }
+    },
+    reset ({commit}) {
+        commit(RESET_ON_LEFT)
     }
 }
 
@@ -88,6 +93,13 @@ const mutations = {
     [UPDATE_USER] (state, user) {
         state.user = user
     },
+    [RESET_ON_LEFT] (state) {
+        state.isLoadingGitHubInfo = false
+        state.isLoadingUserInfo = false
+        state.repositories = []
+        state.gitHubUser = {}
+        state.gitHubInfo = []
+    }
 }
 
 export default {
