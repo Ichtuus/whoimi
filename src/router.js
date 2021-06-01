@@ -5,8 +5,6 @@ import NotFound from './views/NotFound'
 import Home from './views/Home'
 import AboutMe from './views/AboutMe'
 import GitHub from './views/gitHub/GitHub'
-import Front from './views/Front'
-import Back from './views/Back'
 
 Vue.use(Router)
 
@@ -27,16 +25,6 @@ export default new Router({
             path: '/whoimi/github',
             name: 'GitHub',
             component: GitHub
-        },
-        {
-            path: '/whoimi/front',
-            name: 'Front',
-            component: Front
-        },
-        {
-            path: '/whoimi/back',
-            name: 'Back',
-            component: Back
         },
         {
             path: '/whoimi/not-found',
