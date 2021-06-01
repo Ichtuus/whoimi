@@ -9,7 +9,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('gitHub', ['repositories', 'gitHubUser', 'gitHubInfo']),
+    ...mapGetters('gitHub', ['repositories', 'gitHubUser', 'gitHubInfo', 'isLoadingGitHubInfo']),
       _repositories () {
         return this.repositories.filter(repo => repo.fork !== true)
       }
