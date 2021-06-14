@@ -4,17 +4,18 @@
       <div class="columns">
         <div class="column">
           <button-game
-            @[EventsType.START_GAME]="start = !start"
-            :reset-game="resetSnakeGame"
-            :start="start"/>
+              @[EventsType.START_GAME]="start = !start"
+              :reset-game="resetSnakeGame"
+              :score="score"
+              :start="start"/>
         </div>
 
         <div class="column">
           <canvas
-            ref="snake"
-            id="snake"
-            :width="containerSnake.width*containerSnake.cellSize"
-            :height="containerSnake.height*containerSnake.cellSize" />
+              ref="snake"
+              id="snake"
+              :width="containerSnake.width*containerSnake.cellSize"
+              :height="containerSnake.height*containerSnake.cellSize" />
         </div>
 
       </div>
@@ -31,9 +32,10 @@ export default {
   components: { ButtonGame },
   data () {
     return {
+      score: 0,
       start: false,
       watchMoves: null,
-      containerSnake: { width: 70, height: 35, cellSize: 20 },
+      containerSnake: { width: 60, height: 25, cellSize: 15 },
       snake: [ { x: 0, y: 0 } ],
       food: { x: 0, y: 0 },
       ctx: undefined,
@@ -82,7 +84,7 @@ export default {
     }
   },
   computed: {
-     EventsType () { return EventsType }
+    EventsType () { return EventsType }
   },
   mounted () {
     window.addEventListener("keydown", this.onKeyPress)
@@ -115,7 +117,7 @@ export default {
     watchNextMove () {
       // If no direction nothing to do
       if (this.nextDirection == null) { return }
-
+      this.clear()
       // Compute new header depending on the next direction
       this.snake.unshift({
         x: this.snake[0].x + this.nextDirection.move.x,
@@ -138,13 +140,11 @@ export default {
         }
       }
 
-      // Else remove the last element of the snake
-      // If we touch the food create a new food place
+      // If we touch the food create a new food place Else remove the last element of the snake
       if (this.food !== null && this.snake[0].x === this.food.x && this.snake[0].y === this.food.y) {
+        this.score += 10
         this.moveFoodToFreePlace()
       } else {
-        // TODO:fixme: remove last element not working
-        // Else we can remove the last element of the snake
         this.snake.pop()
       }
 
@@ -152,7 +152,8 @@ export default {
     },
     resetSnakeGame () {
       this.clear()
-
+      this.start = false
+      this.score = 0
       // Create snake in the middle of the canvas
       this.snake = [{x: Math.round(this.containerSnake.width / 2), y: Math.round(this.containerSnake.height / 2)}]
       this.moveFoodToFreePlace()
